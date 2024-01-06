@@ -1,0 +1,88 @@
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Калькулятор расчета стоимости доставки грузов</title>
+
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" ></script>
+  <script src="js/calc.js"></script>
+</head>
+
+<body cz-shortcut-listen="true">
+  <div class="col-sm-12 col-md-12 col-lg-9 block">
+    <calculator>
+      <div class="container">
+     
+          <div class="row form-group">
+            <div class="col-12">
+              <h1 class="lh07">Рассчитать стоимость доставки</h1>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="row pb10">
+                <div class="col-md-3 col-sm-12">
+                  <input class="form-control" type="number" min="0" step="0.1" name="с_distance" id="с_distance" placeholder="Расстояние, км:" value="" eng-replacement="true">
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                  <input class="form-control" name="с_weight" id="с_weight" type="number" min="0" step="0.1" placeholder="вес, кг:" value="">
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-check">
+                    <input class="form-check-input mode" type="checkbox" name="mode[0]" checked="">
+                    <label class="form-check-label">Оплата наличными</label>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="row pb5">
+                <div class="form-group col-md-3 col-sm-4 col-6">
+                  <input class="form-control" name="с_length" id="с_length" type="number" min="0" placeholder="длина, см" value="">
+                  <input type="range" id="r1" value="0" max="3000" min="0" oninput="fun1()">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAB/0lEQVQ4jcWTMYsaURDH//P2gYjkQDhzx1qkSXvkAxzGKoHc1We3xYkrojEcIWLKLQ2mOIhZvDzwioUUx1UpzlpDSJ9r8gHigmcaibqKWSdFfIcaUqXIVI//zPzevJl5wD8abQq5XC4lhCgBSAHYBjAA8FEI0Wg2m5/+CnAcR/Z6vTdE9JiZa8zcFkL0F4vFjmEYB8z8EsCVaZonjuP81HlSH5bJ96SUD1zXHa1c8g3Au2Kx+D4Mw0vf908BPNVOocsmokdSyozruiPLsmKrZVqWFXNddzSfz48AHBYKhf01gBCixMyvdHI0Gr22bTsNALZtp6PR6LVlWbFWq/UDQC0Mw9IaAECKmdsA4HnemJmPiejCtu0XRHTBzMee542XsW0iergJ2B4OhzdaVEp1mLlORHVmriulOtoXiUT6y+msAb4nEokdLdq2nSaiCjNXiKiinwMAk8lkF79HuwbohmH4RDeMiM6ZOaOUes3MGSI61401DOMAQHcT8JaZq9ls9o7neeMgCPZ02UqpThAEe57njcvl8haAKhE1NOB2kfL5fIOI7s/n86Nlt9esXC5vTafTSwBflVLPtH67SKZpnvi+fyql/JLP52tSyqvBYNCPx+O7AA5ns1kVwIdkMvl8FfzHXygUCvthGJaIKAXgLoAbAF0iapydnX3ejP//9gvx6NpoO2i9ZAAAAABJRU5ErkJggg==" class="icon-x">
+                </div>
+                <div class="form-group col-md-3 col-sm-4 col-6">
+                  <input class="form-control" name="с_width" id="с_width" type="number" min="0" placeholder="ширина, см" value="">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAB/0lEQVQ4jcWTMYsaURDH//P2gYjkQDhzx1qkSXvkAxzGKoHc1We3xYkrojEcIWLKLQ2mOIhZvDzwioUUx1UpzlpDSJ9r8gHigmcaibqKWSdFfIcaUqXIVI//zPzevJl5wD8abQq5XC4lhCgBSAHYBjAA8FEI0Wg2m5/+CnAcR/Z6vTdE9JiZa8zcFkL0F4vFjmEYB8z8EsCVaZonjuP81HlSH5bJ96SUD1zXHa1c8g3Au2Kx+D4Mw0vf908BPNVOocsmokdSyozruiPLsmKrZVqWFXNddzSfz48AHBYKhf01gBCixMyvdHI0Gr22bTsNALZtp6PR6LVlWbFWq/UDQC0Mw9IaAECKmdsA4HnemJmPiejCtu0XRHTBzMee542XsW0iergJ2B4OhzdaVEp1mLlORHVmriulOtoXiUT6y+msAb4nEokdLdq2nSaiCjNXiKiinwMAk8lkF79HuwbohmH4RDeMiM6ZOaOUes3MGSI61401DOMAQHcT8JaZq9ls9o7neeMgCPZ02UqpThAEe57njcvl8haAKhE1NOB2kfL5fIOI7s/n86Nlt9esXC5vTafTSwBflVLPtH67SKZpnvi+fyql/JLP52tSyqvBYNCPx+O7AA5ns1kVwIdkMvl8FfzHXygUCvthGJaIKAXgLoAbAF0iapydnX3ejP//9gvx6NpoO2i9ZAAAAABJRU5ErkJggg==" class="icon-x">
+                </div>
+                <div class="form-group col-md-3 col-sm-4 col-6">
+                  <input class="form-control" name="с_height" id="с_height" type="number" min="0" placeholder="высота, см" value="">                    
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 hr_"></div>
+            <div class="col-md-6 col-12">
+              <div class="row">
+                <div class="col-md-6 col-6 rb" id="mode">
+                  <h3 class="lh07">Результат: <label id="c_result"></label></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <!-- <img src="img/preloader.svg" id="loading" class="loading1"> -->
+              <button name="submit" id="submit" class="btn">
+                Рассчитать
+              </button>
+            </div>
+            <div class="col-6">
+              <!-- <img src="img/preloader.svg" id="loading" class="loading1"> -->
+              <button name="reset" id="reset" class="btn">
+                Сбросить
+              </button>
+            </div>
+          </div>
+      
+      </div>
+    </calculator>
+  </div>
+
+
+</body></html>
