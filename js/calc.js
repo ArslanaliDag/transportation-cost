@@ -9,15 +9,15 @@ function de() {
 
 // Вес
 function wt() {
-  var rng = document.getElementById("weight"); //rng - это ползунок
-  var i1 = document.getElementById("с_weight"); // i1 - input
+  var rng = document.getElementById("weight");
+  var i1 = document.getElementById("с_weight");
   i1.value = rng.value;
 }
 
 // Длина
 function lh() {
-  var rng = document.getElementById("length"); //rng - это ползунок
-  var i1 = document.getElementById("с_length"); // i1 - input
+  var rng = document.getElementById("length");
+  var i1 = document.getElementById("с_length");
   i1.value = rng.value;
 }
 
@@ -64,9 +64,8 @@ $(function () {
     document.getElementById("width").value = 0;
     document.getElementById("height").value = 0;
 
-    // Сбрсывает чекбокс
-    document.getElementById("cash").value = false;
-
+    // Сбрсывает чекбокс - оплату наличными.
+    document.getElementById("cash").checked = false;
   });
 });
 
