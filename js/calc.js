@@ -1,16 +1,42 @@
-
 /* https://calculator-dostavki.ru/ */
 
-function fun1() {
-  var rng=document.getElementById('r1'); //rng - это ползунок
-  var i1=document.getElementById('с_length'); // i1 - input
- i1.value=rng.value;
+// Расстояние
+function de() {
+  var rng = document.getElementById("distance"); //rng - это ползунок
+  var i1 = document.getElementById("с_distance"); // i1 - input
+  i1.value = rng.value;
+}
+
+// Вес
+function wt() {
+  var rng = document.getElementById("weight"); //rng - это ползунок
+  var i1 = document.getElementById("с_weight"); // i1 - input
+  i1.value = rng.value;
+}
+
+// Длина
+function lh() {
+  var rng = document.getElementById("length"); //rng - это ползунок
+  var i1 = document.getElementById("с_length"); // i1 - input
+  i1.value = rng.value;
+}
+
+// Ширина
+function wh() {
+  var rng = document.getElementById("width");
+  var i1 = document.getElementById("с_width");
+  i1.value = rng.value;
+}
+
+// Высота
+function ht() {
+  var rng = document.getElementById("height");
+  var i1 = document.getElementById("с_height");
+  i1.value = rng.value;
 }
 
 $(function () {
-
   $("#submit").click(function () {
-
     //$("#loading").css("display", "block");
 
     var с_distance = parseFloat($("#с_distance").val()); // Расстояние (км).
@@ -19,22 +45,29 @@ $(function () {
     var с_width = parseFloat($("#с_width").val()); // Ширина (см).
     var с_height = parseFloat($("#с_height").val()); // Высота (см).
 
-    document.getElementById('c_result').innerHTML = с_distance + с_weight;
-    
+    document.getElementById("c_result").innerHTML = с_distance + с_weight;
   });
-
 
   $("#reset").click(function () {
+    document.getElementById("с_distance").value = ""; // Расстояние (км).
+    document.getElementById("с_weight").value = ""; // Вес (кг).
+    document.getElementById("с_length").value = ""; // Длина (см).
+    document.getElementById("с_width").value = ""; // Ширина (см).
+    document.getElementById("с_height").value = ""; // Высота (см).
+    document.getElementById("c_result").innerHTML = ""; // Результат
 
-    document.getElementById('с_distance').value = ""; // Расстояние (км).
-    document.getElementById('с_weight').value = ""; // Вес (кг).
-    document.getElementById('с_length').value = ""; // Длина (см).
-    document.getElementById('с_width').value = ""; // Ширина (см).
-    document.getElementById('с_height').value = ""; // Высота (см).
-    document.getElementById('c_result').innerHTML = ""; // Результат
-    
+    // Сбрасываем ползунки
+    document.getElementById("distance").value = 0;
+    document.getElementById("weight").value = 0;
+
+    document.getElementById("length").value = 0;
+    document.getElementById("width").value = 0;
+    document.getElementById("height").value = 0;
+
+    // Сбрсывает чекбокс
+    document.getElementById("cash").value = false;
+
   });
-
 });
 
 // if (
@@ -677,4 +710,3 @@ $(function () {
 //   }
 //   htmSlider(); //иницилизируем функцию слайдера
 // }
-
